@@ -1,0 +1,15 @@
+.task {
+  width: 100%;
+  max-width: 386px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border: 1px dashed #d7dde9;
+  border-radius: 0.5rem;
+
+  .taskGroup {
+    display: flex;
+    gap: 1rem;
+  }
+}

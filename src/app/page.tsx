@@ -1,9 +1,20 @@
-import styles from "./page.module.css";
+import Header from "@/components/Header";
+import Task from "@/components/Task";
+
+import styles from "./page.module.scss";
 
 export default function Home() {
   return (
-    <div>
-      <h1>TESTE LEGAPLAN</h1>
-    </div>
+    <>
+      <Header />
+
+      <main>
+        <section className={styles.tasks}>
+          <h2>Suas tarefas de hoje</h2>
+
+          <Task />
+        </section>
+      </main>
+    </>
   );
 }
