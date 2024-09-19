@@ -7,9 +7,40 @@
   padding: 1rem;
   border: 1px dashed #d7dde9;
   border-radius: 0.5rem;
+  transition: 0.2s ease-in;
 
   .taskGroup {
     display: flex;
     gap: 1rem;
+
+    input {
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      -o-appearance: none;
+      width: 24px;
+      height: 24px;
+      border: 1px solid #d7dde9;
+      border-radius: 0.25rem;
+    }
+
+    input:checked {
+      background: #a0dcf6 url(../../../public/images/Icon.svg) center no-repeat;
+      border: 1px solid #0796d3;
+    }
+
+    input,
+    label {
+      cursor: pointer;
+    }
+
+    label {
+      font-weight: 400;
+      font-size: 1rem;
+    }
   }
+}
+
+.task:hover {
+  background-color: #f7f9fd;
+  border: 1px solid #f7f9fd;
 }

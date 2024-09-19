@@ -3,13 +3,20 @@ import trash from "public/images/trash.svg";
 
 import styles from "./styles.module.scss";
 
-const Task = () => {
+type TaskProps = {
+  text: string;
+  htmlFor: string;
+  id: string;
+};
+
+const Task = ({ text, htmlFor, id }: TaskProps) => {
   return (
     <div className={styles.task}>
       <div className={styles.taskGroup}>
-        <input type="checkbox" name="" id="" />
-        <p>Lavar as mãos</p>
+        <input type="checkbox" id={id} />
+        <label htmlFor={htmlFor}>{text}</label>
       </div>
+
       <Image
         src={trash}
         alt="Icone Lixeira"
