@@ -9,12 +9,22 @@
   text-decoration: none;
 }
 
+body,
+input,
+button {
+  font: 400 1rem "Inter Tight", sans-serif;
+}
+
 body {
-  font-family: "Inter Tight", sans-serif;
   font-size: 100%;
   list-style-type: none;
 }
 
 img {
   max-width: 100%;
+}
+
+button {
+  cursor: pointer;
+  border: none;
 }

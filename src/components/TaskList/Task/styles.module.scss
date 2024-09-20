@@ -24,7 +24,8 @@
     }
 
     input:checked {
-      background: #a0dcf6 url(../../../public/images/Icon.svg) center no-repeat;
+      background: #a0dcf6 url(../../../../public/images/Icon.svg) center
+        no-repeat;
       border: 1px solid #0796d3;
     }
 
@@ -37,10 +38,20 @@
       font-weight: 400;
       font-size: 1rem;
     }
+
+    .completed {
+      text-decoration: line-through;
+      color: #0000008a;
+    }
+  }
+
+  .taskButton {
+    background-color: transparent;
   }
 }
 
-.task:hover {
+.task:hover,
+.task:focus {
   background-color: #f7f9fd;
   border: 1px solid #f7f9fd;
 }

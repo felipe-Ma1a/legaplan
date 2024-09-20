@@ -34,4 +34,47 @@
   justify-content: center;
   margin-inline: auto;
   margin-block-start: 1.5rem;
+  padding-block: 1rem;
+  border-radius: 0.5rem;
+  background: linear-gradient(90deg, #0796d3 0%, #53c0f0 68.65%);
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.modalInputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-block-end: 2rem;
+
+  input {
+    outline: none;
+    padding: 1rem;
+    border: 1px solid #d7dde9;
+    border-radius: 0.5rem;
+  }
+
+  .errorInput {
+    border: 1px solid #d30707;
+  }
+
+  .errorMessage {
+    color: #d30707;
+    margin-top: 5px;
+    font-size: 14px;
+  }
+}
+
+.deleteText {
+  color: #0000008a;
+  margin-block-end: 2rem;
+}
+
+.addButton {
+  background: linear-gradient(90deg, #0796d3 0%, #53c0f0 68.65%);
+}
+
+.deleteButton {
+  background: linear-gradient(90deg, #d30707 0%, #f05353 68.65%);
 }
