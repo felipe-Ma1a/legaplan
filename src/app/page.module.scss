@@ -42,35 +42,6 @@
   font-size: 1rem;
 }
 
-.modalInputGroup {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  margin-block-end: 2rem;
-
-  input {
-    outline: none;
-    padding: 1rem;
-    border: 1px solid #d7dde9;
-    border-radius: 0.5rem;
-  }
-
-  .errorInput {
-    border: 1px solid #d30707;
-  }
-
-  .errorMessage {
-    color: #d30707;
-    margin-top: 0.3rem;
-    font-size: 0.9rem;
-  }
-}
-
-.deleteText {
-  color: #0000008a;
-  margin-block-end: 2rem;
-}
-
 .addButton {
   background: linear-gradient(90deg, #0796d3 0%, #53c0f0 68.65%);
 }

@@ -5,6 +5,8 @@ import { useCallback } from "react";
 import Header from "@/components/Header";
 import TaskList from "@/components/TaskList";
 import Modal from "@/components/Modal";
+import AddTaskForm from "@/components/Modal/AddTaskForm";
+import DeleteTaskConfirmation from "@/components/Modal/DeleteTaskConfirmation";
 
 import { useTasks } from "@/utils/hooks/useTasks";
 import { useModal } from "@/utils/hooks/useModal";
@@ -40,7 +42,7 @@ export default function Home() {
     closeModal,
   } = useModal();
 
-  const confirmAddTask = useCallback(() => {
+  const handleConfirmAddTask = useCallback(() => {
     const error = handleAddTask();
     if (error) {
       setErrorMessage(error);
@@ -49,37 +51,14 @@ export default function Home() {
     }
   }, [handleAddTask, closeModal, setErrorMessage]);
 
-  const confirmDeleteTask = useCallback(() => {
+  const handleConfirmDeleteTask = useCallback(() => {
     handleDeleteTask(taskToDelete?.id || "");
     closeModal();
   }, [taskToDelete, handleDeleteTask, closeModal]);
 
   const handleConfirm = useCallback(() => {
-    modalMode === "add" ? confirmAddTask() : confirmDeleteTask();
-  }, [modalMode, confirmAddTask, confirmDeleteTask]);
-
-  const renderAddTaskContent = () => (
-    <div className={styles.modalInputGroup}>
-      <label>Título</label>
-      <input
-        type="text"
-        placeholder="Digite"
-        value={newTaskText}
-        onChange={(e) => {
-          setNewTaskText(e.target.value);
-          if (errorMessage) setErrorMessage(null);
-        }}
-        className={errorMessage ? styles.errorInput : ""}
-      />
-      {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
-    </div>
-  );
-
-  const renderDeleteTaskContent = () => (
-    <p className={styles.deleteText}>
-      Tem certeza que você deseja deletar essa tarefa?
-    </p>
-  );
+    modalMode === "add" ? handleConfirmAddTask() : handleConfirmDeleteTask();
+  }, [modalMode, handleConfirmAddTask, handleConfirmDeleteTask]);
 
   const renderTaskList = (tasks: TaskType[], title: string) =>
     tasks.length > 0 && (
@@ -115,9 +94,16 @@ export default function Home() {
               modalMode === "add" ? styles.addButton : styles.deleteButton
             }
           >
-            {modalMode === "add"
-              ? renderAddTaskContent()
-              : renderDeleteTaskContent()}
+            {modalMode === "add" ? (
+              <AddTaskForm
+                newTaskText={newTaskText}
+                setNewTaskText={setNewTaskText}
+                errorMessage={errorMessage}
+                setErrorMessage={setErrorMessage}
+              />
+            ) : (
+              <DeleteTaskConfirmation />
+            )}
           </Modal>
         )}
       </main>

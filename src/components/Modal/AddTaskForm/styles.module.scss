@@ -1,0 +1,23 @@
+.modalInputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-block-end: 2rem;
+
+  input {
+    outline: none;
+    padding: 1rem;
+    border: 1px solid #d7dde9;
+    border-radius: 0.5rem;
+  }
+
+  .errorInput {
+    border: 1px solid #d30707;
+  }
+
+  .errorMessage {
+    color: #d30707;
+    margin-top: 0.3rem;
+    font-size: 0.9rem;
+  }
+}
