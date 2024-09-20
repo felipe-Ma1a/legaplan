@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# <a href="https://legaplan-two.vercel.app/" target="_blank">Teste Dev Júnior - Legaplan</a>
 
-## Getting Started
+Este projeto é uma aplicação de lista de tarefas (Todo List) desenvolvida em Next.js e Sass. Ele foi criado como parte de um teste técnico para uma vaga de Desenvolvedor Frontend Júnior na Legaplan. A aplicação possui funcionalidades de adição, exclusão e marcação de tarefas como concluídas, com um design responsivo e interação via modais.
 
-First, run the development server:
+<a href="https://legaplan-two.vercel.app/" target="_blank">
+    <img src="public/images/home.png">
+</a>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### Tecnologias Utilizadas
+
+Este projeto utiliza as seguintes tecnologias:
+
+- Next.js - Framework React para renderização no lado do servidor e front-end
+- TypeScript - Superset do JavaScript com tipagem estática
+- Sass (SCSS) - Pré-processador CSS para estilização
+- React Hooks - useState, useCallback e custom hooks para gerenciamento de estado e lógica
+
+## Dependências e Versões Necessárias
+
+Para rodar o projeto, você vai precisar das seguintes dependências instaladas no seu ambiente:
+
+- Node.js - Versão: 16.x ou superior
+- npm ou yarn - Gerenciador de pacotes
+
+Além disso, você pode consultar as dependências do projeto no arquivo package.json.
+
+## Como rodar o projeto ✅
+
+Siga os passos abaixo para rodar a aplicação em seu ambiente local:
+
+1. Clone o repositório:
+
+```
+git clone https://github.com/felipe-Ma1a/legaplan.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Acesse o diretório do projeto:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+cd legaplan
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Instale as dependências:
 
-## Learn More
+```
+npm install
+# ou
+yarn install
+```
 
-To learn more about Next.js, take a look at the following resources:
+4. Instale as dependências:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+npm run dev
+# ou
+yarn dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+5. Acesse a aplicação no navegador em http://localhost:3000.
+   </br></br>
 
-## Deploy on Vercel
+Você deverá ver a aplicação de Todo List rodando, onde é possível adicionar, excluir e marcar tarefas como concluídas.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📌 Funcionalidades da Aplicação
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+A aplicação permite as seguintes operações:
+
+- Adicionar Tarefa: Clicando no botão "Adicionar nova tarefa", um modal será aberto permitindo a criação de uma nova tarefa.
+- Excluir Tarefa: Clicando no ícone de lixeira ao lado de uma tarefa, um modal será aberto pedindo confirmação para excluir a tarefa.
+- Marcar Tarefa como Concluída: Clicando em uma tarefa na lista de tarefas ativas, ela será movida para a lista de tarefas concluídas.
+
+## ⏭️ Próximos passos
+
+Abaixo estão algumas ideias que podem ser implementadas no futuro para melhorar a aplicação:
+
+- Implementar testes automatizados: Adicionar testes usando Jest e React Testing Library para garantir a qualidade e estabilidade do código.
+- Autenticação de usuários: Implementar login de usuários para permitir que cada usuário tenha sua própria lista de tarefas.
+- Persistência de dados: Criar uma API ou utilizar uma solução de armazenamento para salvar as tarefas em um banco de dados.
+
+##
+
+Gostaria de agradecer ao Lucas e ao Marcus pela oportunidade de participar deste teste técnico e de mostrar minhas habilidades como desenvolvedor frontend. Foi uma experiência enriquecedora e desafiadora, que me ajudou a crescer profissionalmente.
