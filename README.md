@@ -3,7 +3,7 @@
 Este projeto é uma aplicação de lista de tarefas (Todo List) desenvolvida em Next.js e Sass. Ele foi criado como parte de um teste técnico para uma vaga de Desenvolvedor Frontend Júnior na Legaplan. A aplicação possui funcionalidades de adição, exclusão e marcação de tarefas como concluídas, com um design responsivo e interação via modais.
 
 <a href="https://legaplan-two.vercel.app/" target="_blank">
-    <img src="public/images/home.png">
+    <img src="public/images/home-page.png">
 </a>
 
 ## Tecnologias Utilizadas

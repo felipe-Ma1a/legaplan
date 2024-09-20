@@ -1,5 +1,42 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap");
 
+:root {
+  --font-family-default: "Inter Tight";
+
+  --fw-regular: 400;
+  --fw-bold: 500;
+
+  --fs-200: 0.9rem;
+  --fs-300: 1rem;
+  --fs-600: 1.5rem;
+
+  --clr-primary: #0000008a;
+  --clr-secondary: #ffffff;
+
+  --clr-neutral: #d7dde9;
+
+  --clr-blue-300: #a0dcf6;
+  --clr-blue-400: #53c0f0;
+  --clr-blue-500: #0796d3;
+
+  --gradient-blue: linear-gradient(
+    90deg,
+    var(--clr-blue-500) 0%,
+    var(--clr-blue-400) 68.65%
+  );
+
+  --clr-red-400: #f05353;
+  --clr-red-500: #d30707;
+
+  --gradient-red: linear-gradient(
+    90deg,
+    var(--clr-red-500) 0%,
+    var(--clr-red-400) 68.65%
+  );
+
+  --clr-hover: #f7f9fd;
+}
+
 *,
 *:after,
 *:before {
@@ -12,7 +49,7 @@
 body,
 input,
 button {
-  font: 400 1rem "Inter Tight", sans-serif;
+  font: var(--fw-regular) var(--fs-300) var(--font-family-default), sans-serif;
 }
 
 body {

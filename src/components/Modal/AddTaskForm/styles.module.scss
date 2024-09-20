@@ -7,17 +7,17 @@
   input {
     outline: none;
     padding: 1rem;
-    border: 1px solid #d7dde9;
+    border: 1px solid var(--clr-neutral);
     border-radius: 0.5rem;
   }
 
   .errorInput {
-    border: 1px solid #d30707;
+    border: 1px solid var(--clr-red-500);
   }
 
   .errorMessage {
-    color: #d30707;
+    color: var(--clr-red-500);
     margin-top: 0.3rem;
-    font-size: 0.9rem;
+    font-size: var(--fs-200);
   }
 }

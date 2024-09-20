@@ -5,7 +5,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  border: 1px dashed #d7dde9;
+  border: 1px dashed var(--clr-neutral);
   border-radius: 0.5rem;
   transition: 0.2s ease-in;
 
@@ -19,14 +19,14 @@
       -o-appearance: none;
       width: 24px;
       height: 24px;
-      border: 1px solid #d7dde9;
+      border: 1px solid var(--clr-neutral);
       border-radius: 0.25rem;
     }
 
     input:checked {
-      background: #a0dcf6 url(../../../../public/images/Icon.svg) center
-        no-repeat;
-      border: 1px solid #0796d3;
+      background: var(--clr-blue-300) url(../../../../public/images/Icon.svg)
+        center no-repeat;
+      border: 1px solid var(--clr-blue-500);
     }
 
     input,
@@ -35,13 +35,13 @@
     }
 
     label {
-      font-weight: 400;
-      font-size: 1rem;
+      font-weight: var(--fw-regular);
+      font-size: var(--fs-300);
     }
 
     .completed {
       text-decoration: line-through;
-      color: #0000008a;
+      color: var(--clr-primary);
     }
   }
 
@@ -52,6 +52,6 @@
 
 .task:hover,
 .task:focus {
-  background-color: #f7f9fd;
-  border: 1px solid #f7f9fd;
+  background-color: var(--clr-hover);
+  border: 1px solid var(--clr-hover);
 }
