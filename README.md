@@ -48,7 +48,7 @@ npm install
 yarn install
 ```
 
-4. Instale as dependências:
+4. Inicie o servidor de desenvolvimento:
 
 ```
 npm run dev
