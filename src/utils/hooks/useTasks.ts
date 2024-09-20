@@ -9,6 +9,7 @@ export const useTasks = () => {
     { id: "task1", text: "Lavar as mãos", completed: false },
     { id: "task2", text: "Fazer um bolo", completed: false },
     { id: "task3", text: "Lavar a louça", completed: false },
+    { id: "task4", text: "Levar o lixo para fora", completed: true },
   ]);
 
   const [newTaskText, setNewTaskText] = useState("");

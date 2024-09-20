@@ -1,5 +1,6 @@
 "use client";
 
+import Layout from "@/components/Layout";
 import TaskList from "@/components/TaskList";
 import Modal from "@/components/Modal";
 import AddTaskForm from "@/components/Modal/AddTaskForm";
@@ -61,38 +62,40 @@ export default function Home() {
     );
 
   return (
-    <main className={styles.main}>
-      <section className={styles.tasksList}>
-        {renderTaskList(activeTasks, "Suas tarefas de hoje")}
-        {renderTaskList(completedTasks, "Tarefas finalizadas")}
-      </section>
+    <Layout>
+      <main className={styles.main}>
+        <section className={styles.tasksList}>
+          {renderTaskList(activeTasks, "Suas tarefas de hoje")}
+          {renderTaskList(completedTasks, "Tarefas finalizadas")}
+        </section>
 
-      <button className={styles.addNewTaskButton} onClick={openAddModal}>
-        Adicionar nova tarefa
-      </button>
+        <button className={styles.addNewTaskButton} onClick={openAddModal}>
+          Adicionar nova tarefa
+        </button>
 
-      {isModalOpen && (
-        <Modal
-          title={modalMode === "add" ? "Nova tarefa" : "Deletar tarefa"}
-          onClose={closeModal}
-          onConfirm={handleConfirm}
-          confirmText={modalMode === "add" ? "Adicionar" : "Deletar"}
-          confirmButtonClass={
-            modalMode === "add" ? styles.addButton : styles.deleteButton
-          }
-        >
-          {modalMode === "add" ? (
-            <AddTaskForm
-              newTaskText={newTaskText}
-              setNewTaskText={setNewTaskText}
-              errorMessage={errorMessage}
-              setErrorMessage={setErrorMessage}
-            />
-          ) : (
-            <DeleteTaskConfirmation />
-          )}
-        </Modal>
-      )}
-    </main>
+        {isModalOpen && (
+          <Modal
+            title={modalMode === "add" ? "Nova tarefa" : "Deletar tarefa"}
+            onClose={closeModal}
+            onConfirm={handleConfirm}
+            confirmText={modalMode === "add" ? "Adicionar" : "Deletar"}
+            confirmButtonClass={
+              modalMode === "add" ? styles.addButton : styles.deleteButton
+            }
+          >
+            {modalMode === "add" ? (
+              <AddTaskForm
+                newTaskText={newTaskText}
+                setNewTaskText={setNewTaskText}
+                errorMessage={errorMessage}
+                setErrorMessage={setErrorMessage}
+              />
+            ) : (
+              <DeleteTaskConfirmation />
+            )}
+          </Modal>
+        )}
+      </main>
+    </Layout>
   );
 }

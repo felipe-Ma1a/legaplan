@@ -3,4 +3,8 @@
   max-width: 185px;
   padding-block: 1rem;
   border-radius: 0.5rem;
+
+  @media (max-width: 430px) {
+    max-width: none;
+  }
 }
