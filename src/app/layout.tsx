@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
+import { Inter_Tight } from "next/font/google";
 import "./globals.scss";
+
+import Header from "@/components/Header";
+
+const interTight = Inter_Tight({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Teste Dev Júnior - Legaplan",
@@ -13,7 +18,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body>{children}</body>
+      <body className={interTight.className}>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }

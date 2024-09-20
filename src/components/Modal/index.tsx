@@ -1,3 +1,5 @@
+"use client";
+
 import { ReactNode } from "react";
 import ModalButton from "./ModalButton";
 import styles from "./styles.module.scss";

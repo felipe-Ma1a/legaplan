@@ -1,8 +1,5 @@
 "use client";
 
-import { useCallback } from "react";
-
-import Header from "@/components/Header";
 import TaskList from "@/components/TaskList";
 import Modal from "@/components/Modal";
 import AddTaskForm from "@/components/Modal/AddTaskForm";
@@ -10,15 +7,11 @@ import DeleteTaskConfirmation from "@/components/Modal/DeleteTaskConfirmation";
 
 import { useTasks } from "@/utils/hooks/useTasks";
 import { useModal } from "@/utils/hooks/useModal";
+import { useTaskHandlers } from "@/utils/hooks/useTaskHandlers";
+import { useModalHandlers } from "@/utils/hooks/useModalHandlers";
 import { TaskType } from "@/utils/types/taskType.type";
 
 import styles from "./page.module.scss";
-
-const initialTasks = [
-  { id: "task1", text: "Lavar as mãos", completed: false },
-  { id: "task2", text: "Fazer um bolo", completed: false },
-  { id: "task3", text: "Lavar a louça", completed: false },
-];
 
 export default function Home() {
   const {
@@ -29,7 +22,7 @@ export default function Home() {
     handleAddTask,
     handleToggleTask,
     handleDeleteTask,
-  } = useTasks(initialTasks);
+  } = useTasks();
 
   const {
     isModalOpen,
@@ -42,23 +35,20 @@ export default function Home() {
     closeModal,
   } = useModal();
 
-  const handleConfirmAddTask = useCallback(() => {
-    const error = handleAddTask();
-    if (error) {
-      setErrorMessage(error);
-    } else {
-      closeModal();
-    }
-  }, [handleAddTask, closeModal, setErrorMessage]);
+  const { handleConfirmAddTask, handleConfirmDeleteTask } = useTaskHandlers({
+    handleAddTask,
+    handleDeleteTask,
+    taskToDelete,
+    closeModal,
+    setErrorMessage,
+    errorMessage,
+  });
 
-  const handleConfirmDeleteTask = useCallback(() => {
-    handleDeleteTask(taskToDelete?.id || "");
-    closeModal();
-  }, [taskToDelete, handleDeleteTask, closeModal]);
-
-  const handleConfirm = useCallback(() => {
-    modalMode === "add" ? handleConfirmAddTask() : handleConfirmDeleteTask();
-  }, [modalMode, handleConfirmAddTask, handleConfirmDeleteTask]);
+  const { handleConfirm } = useModalHandlers({
+    modalMode,
+    handleConfirmAddTask,
+    handleConfirmDeleteTask,
+  });
 
   const renderTaskList = (tasks: TaskType[], title: string) =>
     tasks.length > 0 && (
@@ -71,42 +61,38 @@ export default function Home() {
     );
 
   return (
-    <>
-      <Header />
+    <main className={styles.main}>
+      <section className={styles.tasksList}>
+        {renderTaskList(activeTasks, "Suas tarefas de hoje")}
+        {renderTaskList(completedTasks, "Tarefas finalizadas")}
+      </section>
 
-      <main className={styles.main}>
-        <section className={styles.tasksList}>
-          {renderTaskList(activeTasks, "Suas tarefas de hoje")}
-          {renderTaskList(completedTasks, "Tarefas finalizadas")}
-        </section>
+      <button className={styles.addNewTaskButton} onClick={openAddModal}>
+        Adicionar nova tarefa
+      </button>
 
-        <button className={styles.addNewTaskButton} onClick={openAddModal}>
-          Adicionar nova tarefa
-        </button>
-
-        {isModalOpen && (
-          <Modal
-            title={modalMode === "add" ? "Nova tarefa" : "Deletar tarefa"}
-            onClose={closeModal}
-            onConfirm={handleConfirm}
-            confirmText={modalMode === "add" ? "Adicionar" : "Deletar"}
-            confirmButtonClass={
-              modalMode === "add" ? styles.addButton : styles.deleteButton
-            }
-          >
-            {modalMode === "add" ? (
-              <AddTaskForm
-                newTaskText={newTaskText}
-                setNewTaskText={setNewTaskText}
-                errorMessage={errorMessage}
-                setErrorMessage={setErrorMessage}
-              />
-            ) : (
-              <DeleteTaskConfirmation />
-            )}
-          </Modal>
-        )}
-      </main>
-    </>
+      {isModalOpen && (
+        <Modal
+          title={modalMode === "add" ? "Nova tarefa" : "Deletar tarefa"}
+          onClose={closeModal}
+          onConfirm={handleConfirm}
+          confirmText={modalMode === "add" ? "Adicionar" : "Deletar"}
+          confirmButtonClass={
+            modalMode === "add" ? styles.addButton : styles.deleteButton
+          }
+        >
+          {modalMode === "add" ? (
+            <AddTaskForm
+              newTaskText={newTaskText}
+              setNewTaskText={setNewTaskText}
+              errorMessage={errorMessage}
+              setErrorMessage={setErrorMessage}
+            />
+          ) : (
+            <DeleteTaskConfirmation />
+          )}
+        </Modal>
+      )}
+    </main>
   );
 }

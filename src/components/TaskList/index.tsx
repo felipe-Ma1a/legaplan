@@ -1,3 +1,5 @@
+"use client";
+
 import { TaskType } from "@/utils/types/taskType.type";
 import Task from "./Task";
 

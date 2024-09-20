@@ -1,9 +1,16 @@
+"use client";
+
 import { useState } from "react";
 import { TaskType } from "@/utils/types/taskType.type";
 import { addTask, toggleTaskCompletion } from "@/utils/taskUtils";
 
-export const useTasks = (initialTasks: TaskType[]) => {
-  const [tasks, setTasks] = useState<TaskType[]>(initialTasks);
+export const useTasks = () => {
+  const [tasks, setTasks] = useState<TaskType[]>([
+    { id: "task1", text: "Lavar as mãos", completed: false },
+    { id: "task2", text: "Fazer um bolo", completed: false },
+    { id: "task3", text: "Lavar a louça", completed: false },
+  ]);
+
   const [newTaskText, setNewTaskText] = useState("");
 
   const handleToggleTask = (taskId: string) => {

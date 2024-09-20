@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { TaskType } from "@/utils/types/taskType.type";
 
